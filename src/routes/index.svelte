@@ -1,5 +1,6 @@
 <script context="module">
 	import { client } from '$lib/graphql-client';
+	import SourceCard from '$lib/components/source-card.svelte'
 	import { sourcesQuery } from '$lib/graphql-queries';
 
 	export const load = async () => {
@@ -21,10 +22,6 @@
 	<title>Wlaj</title>
 </svelte:head>
 
-{#each sources as { name, internal, external }}
-	<div class="flex h-screen text-3xl font-semibold justify-center items-center">
-		<div class="">
-			<a href={internal || external}>{name}</a>
-		</div>
-	</div>
+{#each sources as { name, slug }}
+	<SourceCard {name} {slug} />
 {/each}

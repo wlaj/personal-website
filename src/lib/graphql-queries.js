@@ -19,8 +19,7 @@ export const sourcesQuery = gql`
     sources {
       name
       icon
-      external
-      internal
+      slug
     }
   }
 `
