@@ -1,10 +1,10 @@
 <script context="module">
 	import { client } from '$lib/graphql-client';
-	import SourceCard from '$lib/components/source-card.svelte'
+	import SourceCard from '$lib/components/source-card.svelte';
 	import { sourcesQuery } from '$lib/graphql-queries';
 
 	export const load = async () => {
-		const { sources } = await client.request(sourcesQuery)
+		const { sources } = await client.request(sourcesQuery);
 
 		return {
 			props: {
@@ -22,6 +22,10 @@
 	<title>Wlaj</title>
 </svelte:head>
 
-{#each sources as { name, slug }}
-	<SourceCard {name} {slug} />
-{/each}
+<div class="flex flex-nowrap container min-w-full min-h-screen items-center justify-center">
+	<div class="bg-zinc-900 rounded-3xl cursor-pointer flex flex-row p-3">
+		{#each sources as { name, slug }}
+			<SourceCard {name} {slug} />
+		{/each}
+	</div>
+</div>

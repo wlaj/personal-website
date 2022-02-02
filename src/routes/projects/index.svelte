@@ -1,5 +1,5 @@
 <script context="module">
-    import ProjectCard from '$lib/components/source-card.svelte'
+    import ProjectCard from '$lib/components/project-card.svelte'
     import { client } from '$lib/graphql-client'
     import { projectsQuery } from '$lib/graphql-queries'
   
@@ -19,15 +19,14 @@
   </script>
   
   <svelte:head>
-    <title>My Portfolio projects</title>
+    <title>Case studies</title>
   </svelte:head>
   
-  <h1 class="font-bold mb-20 text-center text-5xl">
-    Recent Projects by Me
+  <h1 class="font-bold p-5 text-5xl container m-auto">
+    Recent projects
   </h1>
-  
   <div
-    class="grid gap-10 md:grid-cols-4 md:px-10 lg:grid-cols-6 lg:-mx-52"
+    class="grid m-auto container lg:grid-cols-2"
   >
     {#each projects as { name, slug, description, image }, index}
       <ProjectCard
